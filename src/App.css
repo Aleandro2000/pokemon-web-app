@@ -70,6 +70,11 @@ body, html{
   color: #343a40;
 }
 
+.text-card{
+  background-color: white;
+  color: #343a40;
+}
+
 .text-container
 {
   background-color: white;
@@ -78,7 +83,7 @@ body, html{
   padding: 50px;
 }
 
-.text-container:hover{
+.text-container:hover, .text-card:hover{
   background-color: #343a40;
   color: white;
   transition-duration: 0.4s;

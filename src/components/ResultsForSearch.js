@@ -1,6 +1,7 @@
 import { useContext,useEffect,useState } from "react";
 
 import { SearchContext } from "../context/SearchContext";
+import Spinner from "./Spinner"
 
 export default function ResultsForSearch()
 {
@@ -53,11 +54,29 @@ export default function ResultsForSearch()
         fetch("/pokemon?offset="+currentPage*8+"&limit="+8)
             .then(response=>response.json())
             .then(data=>{
-                if(data.count%8)
-                    setPagesCount(Math.floor(data.count/8)+1);
+                if(!search||!search.length)
+                {
+                    if(data.count%8)
+                        setPagesCount(Math.floor(data.count/8)+1);
+                    else
+                        setPagesCount(Math.floor(data.count/8));
+                    setResult(data.results);
+                }
                 else
-                    setPagesCount(Math.floor(data.count/8));
-                setResult(data.results);
+                {
+                    data.results=data.results.filter((element=>{
+                        for(let index in search)
+                            if(element.name.includes(search[index]))
+                                return true;
+                        return false;
+                    }));
+                    data.count=data.results.length;
+                    if(data.count%8)
+                        setPagesCount(Math.floor(data.count/8)+1);
+                    else
+                        setPagesCount(Math.floor(data.count/8));
+                    setResult(data.results);
+                }
             });
         setTimeout(() => {
             setRender(prev=>prev+1)
@@ -71,31 +90,17 @@ export default function ResultsForSearch()
                 result ? (
                     <>
                         <br/>
-                        <center style={{display: "none"}} id="loading">
-                            <div className="spinner-grow text-dark" role="status">
-                                <span className="sr-only"/>
-                            </div>
-                            <div className="spinner-grow text-dark" role="status">
-                                <span className="sr-only"/>
-                            </div>
-                            <div className="spinner-grow text-dark" role="status">
-                                <span className="sr-only"/>
-                            </div>
-                            <br/>
-                        </center>
-                        <div id="result">
+                        <Spinner id="loading"/>
+                        <div className="container" id="result">
                             <div className="row" id="result">
                                 {
                                     result.slice(0,4).map((item,index)=>{
                                         return(
                                             <div className="col" key={index}>
                                                 <div className="container" id="result">
-                                                    <div className="card">
-                                                        <img className="card-img-top" src="..." alt=""/>
+                                                    <div className="card text-card">
                                                         <div className="card-body">
                                                             <h5 className="card-title">{item.name.toUpperCase()}</h5>
-                                                            <p className="card-text" align="justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                            <a href="#sda" className="btn btn-dark">More Details</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,12 +116,9 @@ export default function ResultsForSearch()
                                         return(
                                             <div className="col" key={index}>
                                                 <div className="container" id="result">
-                                                    <div className="card">
-                                                        <img className="card-img-top" src="..." alt=""/>
+                                                    <div className="card text-card">
                                                         <div className="card-body">
                                                             <h5 className="card-title">{item.name.toUpperCase()}</h5>
-                                                            <p className="card-text" align="justify">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                            <a href="#sda" className="btn btn-dark">More Details</a>
                                                         </div>
                                                     </div>
                                                 </div>
