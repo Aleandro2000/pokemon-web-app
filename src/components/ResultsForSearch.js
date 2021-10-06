@@ -66,7 +66,7 @@ export default function ResultsForSearch()
                 {
                     data.results=data.results.filter((element=>{
                         for(let index in search)
-                            if(element.name.includes(search[index]))
+                            if(element.name.toLowerCase().includes(search[index]))
                                 return true;
                         return false;
                     }));
