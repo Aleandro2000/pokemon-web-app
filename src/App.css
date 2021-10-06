@@ -1,0 +1,120 @@
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+
+body, html{
+  width: 100%;
+  margin: 0;
+	color: black;
+  scroll-behavior: smooth;
+  font-family: 'Pokemon Solid', sans-serif;
+  letter-spacing: 2px;
+	background-image: url("./img/background-content.svg");
+}
+
+.navbar{
+  text-align: center;
+}
+
+.logo {
+  max-width: 150px;
+  max-height: 150px;
+  width: 100%;
+}
+
+.header {
+  height: 400px;
+  background-color: #343a40;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+.header-content{
+  color: white;
+  padding-top: 100px;
+}
+
+.pokemon-mobile{
+  max-width: 400px;
+}
+
+.about{
+  padding-top: 150px;
+  margin-bottom: 75px;
+  color: #343a40;
+}
+
+.text-container
+{
+  background-color: white;
+  box-shadow: 2px 2px 2px 2px gray;
+  border-radius: 25px 0 25px 0;
+  padding: 50px;
+}
+
+.text-container:hover{
+  background-color: #343a40;
+  color: white;
+  transition-duration: 0.4s;
+}
+
+.footer{
+  position: fixed;
+  bottom: 5px;
+  left: 10px;
+  right: 10px;
+  background-color: #343a40;
+  color: white;
+  box-shadow: 2px 2px 2px 2px gray;
+  border-radius: 25px 0 25px 0;
+  margin-top: 75px;
+  padding: 20px;
+}
+
+.pokemon-ball {
+  max-width: 100px;
+  max-height: 100px;
+  width: 100%;
+}
+
+.search-input{
+  min-width: 200px;
+}
+
+@media only screen and (max-width: 600px)
+{
+  .pokemon-mobile{
+    padding-top: 50px;
+    width: 400px;
+  }
+  .header{
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .pokemon-mobile{
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 400px){
+  .pokemon-mobile{
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 300px){
+  .pokemon-mobile{
+    width: 100px;
+  }
+  .search-input{
+    min-width: 100px;
+  }
+}
+
+@media only screen and (max-width: 260px)
+{
+  .logo{
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
