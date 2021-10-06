@@ -7,7 +7,7 @@ export default function NotFound()
     const history=useHistory();
 
     return(
-        <center className="container text-container vertical-center" style={{marginTop: "100px"}}>
+        <center className="container text-container vertical-center fadeIn" style={{marginTop: "100px"}}>
             <img alt="" src={pokemonBall} className="pokemon-ball"/>
             <br/><br/><br/>
             <h2>

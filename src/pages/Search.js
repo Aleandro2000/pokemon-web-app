@@ -8,14 +8,16 @@ import Footer from "../components/Footer";
 
 export default function Search()
 {
-    const [search,setSearch]=useState("");
+    const [search,setSearch]=useState();
 
     return(
-        <SearchContext.Provider value={[search,setSearch]}>
-            <Navbar/>
-            <Header/>
-            <ResultsForSearch/>
-            <Footer/>
-        </SearchContext.Provider>
+        <div className="fadeIn">
+            <SearchContext.Provider value={[search,setSearch]}>
+                <Navbar/>
+                <Header/>
+                <ResultsForSearch/>
+                <Footer/>
+            </SearchContext.Provider>
+        </div>
     )
 }

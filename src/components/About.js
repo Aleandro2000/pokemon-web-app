@@ -1,7 +1,7 @@
 export default function About()
 {
     return(
-        <div className="container text-center about" id="about">
+        <div className="container text-center content" id="about">
             <h1>
                 About
             </h1>
