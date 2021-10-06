@@ -73,6 +73,7 @@ body, html{
 .text-card{
   background-color: white;
   color: #343a40;
+  cursor: pointer;
 }
 
 .text-container
