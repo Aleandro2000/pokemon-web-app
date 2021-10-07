@@ -10,7 +10,8 @@ import { useState } from "react";
 import { SearchResultContext } from "./context/SearchContext";
 import { DetailsContext } from "./context/DetailsContext";
 
-export default function App() {
+export default function App()
+{
   const [searchResult,setSearchResult]=useState([]);
   const [details,setDetails]=useState([]);
 
