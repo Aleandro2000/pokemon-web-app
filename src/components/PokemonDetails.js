@@ -124,6 +124,5 @@ export default function PokemonDetails()
             </div>
         );
     else
-        history.goBach();
-
+        history.goBack();
 }
