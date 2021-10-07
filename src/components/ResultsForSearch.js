@@ -1,4 +1,5 @@
 import { useContext,useEffect,useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import { SearchResultContext } from "../context/SearchContext";
 
@@ -14,6 +15,7 @@ export default function ResultsForSearch()
     const [pageIndex,setPageIndex]=useState(0);
     const [result, setResult]=useState([]);
     const [hasResult,setHasResult]=useState(false);
+    const history=useHistory();
 
     const forward=() => {
         if(currentPage+1<pagesCount)

@@ -1,18 +1,15 @@
-import {useState} from "react";
-
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
-import ResultsForSearch from "../components/ResultsForSearch";
+import PokemonDetails from "../components/PokemonDetails";
 import Footer from "../components/Footer";
 
-export default function Search()
+export default function Details()
 {
-
     return(
         <div className="fadeIn">
             <Navbar/>
-            <Header/>
-            <ResultsForSearch/>
+            <Header type="default"/>
+            <PokemonDetails/>
             <Footer/>
         </div>
     )

@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 
 import logo from "../img/logo.png";
 
 export default function Navbar(props)
 {
+    const history=useHistory();
+    
     switch(props.type)
     {
         case "default":
@@ -43,7 +45,7 @@ export default function Navbar(props)
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="nav navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link" to="/home"><i className="fa fa-home"/>Home</Link>
+                                <span className="nav-link"style={{cursor: "pointer"}} onClick={history.goBack}><i className="fa fa-arrow-left"/>Back</span>
                             </li>
                         </ul>
                     </div>

@@ -14,13 +14,13 @@ export default function SearchBar()
         document.getElementById("search_loading").style.display="block";
         if(input)
         {
-            let searchArr=input.toLowerCase().replaceAll(',',' ').split(' ');
+            let searchArr=input.toLowerCase().split(/[ ,]+/);
             setSearchResult([]);
             searchArr.forEach(element=>{
                 fetch("/pokemon/"+element)
                     .then(response=>response.json())
                     .then(data=>{
-                        if(data)
+                        if(data&&element)
                             setSearchResult(initial=>unique([...initial,{name: element, result: data}]))
                     });
             });
