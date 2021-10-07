@@ -21,7 +21,7 @@ export default function SearchBar()
                     .then(response=>response.json())
                     .then(data=>{
                         if(data&&element)
-                            setSearchResult(initial=>unique([...initial,{result: data}]));
+                            setSearchResult(initial=>unique([...initial,{name: element, result: data}]));
                     });
             });
         }
