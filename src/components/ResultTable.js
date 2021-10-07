@@ -45,7 +45,7 @@ export default function ResultTable(props)
                     <div className="container" id="result">
                         <div className="row" id="result">
                             {
-                                props.result.slice(props.currentPage*4,(props.currentPage+1)*4).map((item,index)=>{
+                                props.result.slice(props.pageIndex*4,(props.pageIndex+1)*4).map((item,index)=>{
                                     return(
                                         <div className="col" key={index}>
                                             <div className="container" id="result">
@@ -63,7 +63,7 @@ export default function ResultTable(props)
                         <br/>
                         <div className="row">
                             {
-                                props.result.slice((props.currentPage+1)*4,(props.currentPage+2)*4).map((item,index)=>{
+                                props.result.slice((props.pageIndex+1)*4,(props.pageIndex+2)*4).map((item,index)=>{
                                     return(
                                         <div className="col" key={index}>
                                             <div className="container" id="result">

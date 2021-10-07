@@ -116,10 +116,9 @@ body, html{
 
 .pagination > li > span{
   color: #343a40;
+  cursor: pointer;
 }
 
-.pagination > li > span:focus,
-.pagination > li > span:hover,
 .pagination > li > span:focus,
 .pagination > li > span:hover
 {
@@ -203,6 +202,10 @@ body, html{
     -ms-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
+}
+
+.card{
+  box-shadow: 2px 2px 2px 2px gray;
 }
 
 @media only screen and (max-width: 600px)

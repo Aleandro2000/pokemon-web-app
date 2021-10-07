@@ -11,6 +11,7 @@ export default function ResultsForSearch()
     const [render,setRender]=useState(0);
     const [pagesCount,setPagesCount]=useState(0);
     const [currentPage,setCurrentPage]=useState(0);
+    const [pageIndex,setPageIndex]=useState(0);
     const [result, setResult]=useState([]);
     const [hasResult,setHasResult]=useState(false);
 
@@ -20,6 +21,7 @@ export default function ResultsForSearch()
             document.getElementById("loading").style.display="block";
             document.getElementById("result").style.display="none";
             setCurrentPage(currentPage+1);
+            setPageIndex(pageIndex+2);
             setTimeout(() => {
                 document.getElementById("loading").style.display="none";
                 document.getElementById("result").style.display="table";
@@ -33,6 +35,7 @@ export default function ResultsForSearch()
             document.getElementById("loading").style.display="block";
             document.getElementById("result").style.display="none";
             setCurrentPage(currentPage-1);
+            setPageIndex(pageIndex-2);
             setTimeout(() => {
                 document.getElementById("loading").style.display="none";
                 document.getElementById("result").style.display="table";
@@ -41,7 +44,7 @@ export default function ResultsForSearch()
     }
 
     useEffect(()=>{
-        if(!searchResult)
+        if(!searchResult||!searchResult.length)
         {
             fetch("/pokemon?offset="+currentPage*8+"&limit="+8)
                 .then(response=>response.json())
@@ -76,18 +79,18 @@ export default function ResultsForSearch()
                     <>
                         <br/>
                         <Spinner id="loading"/>
-                        <ResultTable hasResult={hasResult} result={result} currentPage={currentPage}/>
+                        <ResultTable hasResult={hasResult} result={result} currentPage={currentPage} pageIndex={pageIndex}/>
                         <br/>
                         <ul className="pagination justify-content-center">
                             <li className="page-item">
-                                <span className="page-link" style={{cursor: "pointer"}} onClick={backward} aria-label="Previous">
+                                <span className="page-link" onClick={backward} aria-label="Previous">
                                     <span aria-hidden="true">&laquo;</span>
                                     <span className="sr-only"/>
                                 </span>
                             </li>
                             <li className="page-item"><span className="page-link">{currentPage+1}</span></li>
                             <li className="page-item">
-                                <span className="page-link" style={{cursor: "pointer"}} onClick={forward} aria-label="Next">
+                                <span className="page-link" onClick={forward} aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
                                     <span className="sr-only"/>
                                 </span>
