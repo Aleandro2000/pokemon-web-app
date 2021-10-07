@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { pikachu } from "../utils";
 
 import mobile from "../img/pokemon-phone.svg";
 
@@ -18,7 +19,7 @@ export default function Header(props)
                             <Link className="btn btn-light" to="/search" role="button"><i className="fa fa-search"/> Search Pokémons</Link>
                         </div>
                         <div className="col">
-                            <img alt="" src={mobile} className="pokemon-mobile tada"/>
+                            <img alt="" src={mobile} className="pokemon-mobile tada" onClick={pikachu}/>
                         </div>
                     </div>
                 </div>

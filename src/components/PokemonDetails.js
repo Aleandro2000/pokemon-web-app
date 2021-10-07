@@ -1,13 +1,13 @@
-import { useHsitory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { DetailsContext } from "../context/DetailsContext";
 
 export default function PokemonDetails()
 {
     const [details,setDetails]=useContext(DetailsContext);
-    const history=useHsitory();
+    const history=useHistory();
 
-    if(details)
+    if(details&&details.name)
         return(
             <div className="container content">
                 <br/>

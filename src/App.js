@@ -16,20 +16,20 @@ export default function App()
   const [details,setDetails]=useState([]);
 
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <Redirect to="/home"/>
-        </Route>
-        <Route exact path="/home" component={Homepage}/>
-        <DetailsContext.Provider value={[details,setDetails]}>
-          <SearchResultContext.Provider value={[searchResult,setSearchResult]}>
+    <DetailsContext.Provider value={[details,setDetails]}>
+      <SearchResultContext.Provider value={[searchResult,setSearchResult]}>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/home"/>
+            </Route>
+            <Route exact path="/home" component={Homepage}/>
             <Route exact path="/search" component={Search}/>
             <Route exact path="/details" component={Details}/>
-          </SearchResultContext.Provider>
-        </DetailsContext.Provider>
-        <Route component={NotFound}/>
-      </Switch>
-    </BrowserRouter>
+            <Route component={NotFound}/>
+          </Switch>
+        </BrowserRouter>
+      </SearchResultContext.Provider>
+    </DetailsContext.Provider>
   );
 }

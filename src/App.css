@@ -62,6 +62,7 @@ body, html{
 
 .pokemon-mobile{
   max-width: 400px;
+  cursor: pointer;
 }
 
 .content{
