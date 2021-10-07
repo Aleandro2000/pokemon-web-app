@@ -80,7 +80,7 @@ export default function ResultsForSearch()
             });
         setTimeout(() => {
             setRender(prev=>prev+1)
-        },1000);
+        },500);
     },[render]);
 
     return(

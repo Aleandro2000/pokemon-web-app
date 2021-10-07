@@ -220,6 +220,9 @@ body, html{
   .pokemon-mobile{
     width: 300px;
   }
+  .text-container{
+    padding: 25px;
+  }
 }
 
 @media only screen and (max-width: 400px){
@@ -242,5 +245,22 @@ body, html{
   .logo{
     max-width: 100px;
     max-height: 100px;
+  }
+}
+
+@media only screen and (max-height: 550px)
+{
+  .footer{
+    border-radius: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@media only screen and (max-height: 530px)
+{
+  .footer{
+    position: relative;
   }
 }
