@@ -40,19 +40,6 @@ export default function ResultsForSearch()
         }
     }
 
-    const setPage=(page)=>{
-        if(page>=0&&page<pagesCount-2)
-        {
-            document.getElementById("loading").style.display="block";
-            document.getElementById("result").style.display="none";
-            setCurrentPage(page);
-            setTimeout(() => {
-                document.getElementById("loading").style.display="none";
-                document.getElementById("result").style.display="table";
-            },1000);
-        }
-    }
-
     useEffect(()=>{
         if(!searchResult)
         {
@@ -98,9 +85,7 @@ export default function ResultsForSearch()
                                     <span className="sr-only"/>
                                 </span>
                             </li>
-                            <li className="page-item"><span className="page-link" style={{cursor: "pointer"}} onClick={()=>setPage(currentPage-1)}>{currentPage+1}</span></li>
-                            <li className="page-item"><span className="page-link" style={{cursor: "pointer"}} onClick={()=>setPage(currentPage+1)}>{currentPage+2}</span></li>
-                            <li className="page-item"><span className="page-link" style={{cursor: "pointer"}} onClick={()=>setPage(currentPage+2)}>{currentPage+3}</span></li>
+                            <li className="page-item"><span className="page-link">{currentPage+1}</span></li>
                             <li className="page-item">
                                 <span className="page-link" style={{cursor: "pointer"}} onClick={forward} aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
