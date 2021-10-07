@@ -1,19 +1,32 @@
 import { useState,useContext } from "react";
 
-import { SearchContext } from "../context/SearchContext";
+import { SearchResultContext } from "../context/SearchContext";
+import { unique } from "../utils";
+
 import Spinner from "./Spinner";
 
 export default function SearchBar()
 {
-    const [search,setSearch]=useContext(SearchContext);
+    const [searchResult,setSearchResult]=useContext(SearchResultContext);
     const [input,setInput]=useState("");
 
     const query=()=>{
         document.getElementById("search_loading").style.display="block";
         if(input)
-            setSearch(input.toLowerCase().split(/,| /));
+        {
+            let searchArr=input.toLowerCase().replaceAll(',',' ').split(' ');
+            setSearchResult([]);
+            searchArr.forEach(element=>{
+                fetch("/pokemon/"+element)
+                    .then(response=>response.json())
+                    .then(data=>{
+                        if(data)
+                            setSearchResult(initial=>unique([...initial,{name: element, result: data}]))
+                    });
+            });
+        }
         else
-            setSearch();
+            setSearchResult();
         setTimeout(() => {
             document.getElementById("search_loading").style.display="none";
         },1000);
