@@ -1,4 +1,8 @@
-@import url('./fonts/Pokemon\ Solid.ttf');
+@font-face {
+  font-family: "Pokemon Solid";
+  src: url('./fonts/Pokemon\ Solid.ttf') format("ttf");
+}
+
 
 body, html{
   width: 100%;
