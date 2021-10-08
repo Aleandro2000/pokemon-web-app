@@ -24,7 +24,7 @@ export default function SearchBar()
         {
             let searchArr=input.toLowerCase().split(/[ ,]+/);
             searchArr.forEach(element=>{
-                fetch("/api/v2/pokemon/"+element)
+                fetch("/pokemon/"+element)
                     .then(response=>response.json())
                     .then(data=>{
                         if(data&&element)
