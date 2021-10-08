@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { DetailsContext,DescriptionContext } from "../context/DetailsContext";
 
+import Spinner from "./Spinner";
+
 export default function ResultTable(props)
 {
     const [details,setDetails]=useContext(DetailsContext);
@@ -9,6 +11,7 @@ export default function ResultTable(props)
     const history=useHistory();
 
     const gotoDetails=async (pokemon)=>{
+        document.getElementById("open").style.display="block";
         setDetails();
         setDescription("");
         if(!pokemon.url)
@@ -39,11 +42,14 @@ export default function ResultTable(props)
                     break;
                 }
         }
+        document.getElementById("open").style.display="none";
         history.push("/details");
     }
     
     return(
         <>
+            <Spinner id="open"/>
+            <br/>
             {
                 !props.hasResult ? (
                     <div className="container" id="result">
