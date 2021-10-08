@@ -86,16 +86,16 @@ export default function PokemonDetails()
                         </h5>
                         <br/>
                         <center className="container row">
-                            <div className="col">
+                            <div className="col m-3">
                                 <b>Height</b><span className="badge badge-dark">{details.result.height}</span>
                             </div>
-                            <div className="col">
+                            <div className="col m-3">
                                 <b>Weight</b><span className="badge badge-dark">{details.result.weight}</span>
                             </div>
-                            <div className="col">
+                            <div className="col m-3">
                                 <b>Base Experience</b><span className="badge badge-dark">{details.result.base_experience}</span>
                             </div>
-                            <div className="col">
+                            <div className="col m-3">
                                 <b>Types</b>
                                 {
                                     details.result.types.map((item,index)=>{
