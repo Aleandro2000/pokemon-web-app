@@ -114,8 +114,8 @@ export default function PokemonDetails()
                         <center className="container row">
                             <div className="col">
                                 <ul className="list-group">
-                                    <li className="list-group-item">
-                                        <i>Abilities</i>
+                                    <li className="list-group-item list-header">
+                                        Abilities
                                     </li>
                                     {
                                         details.result.abilities.map((item,index)=>{
@@ -130,8 +130,8 @@ export default function PokemonDetails()
                             </div>
                             <div className="col">
                                 <ul className="list-group">
-                                    <li className="list-group-item">
-                                        <i>Stats</i>
+                                    <li className="list-group-item list-header">
+                                        Stats
                                     </li>
                                     {
                                         details.result.stats.map((item,index)=>{
