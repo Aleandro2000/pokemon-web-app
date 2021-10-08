@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import { useContext,useEffect,useState } from "react";
 
 import { PageContext,SearchResultContext,IndexContext } from "../context/SearchContext";
