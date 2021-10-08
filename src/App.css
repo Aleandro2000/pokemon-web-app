@@ -223,9 +223,9 @@ body, html{
   margin-top: 25px;
 }
 
-.list-group-item[aria-expanded="true"]{
+.active{
   background-color: #343a40 !important;
-  border-color: #343a40;
+  border-color: #343a40 !important;
 }
 
 .rounded-badge{
