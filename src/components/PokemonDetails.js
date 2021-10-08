@@ -95,32 +95,52 @@ export default function PokemonDetails()
                             <div className="col">
                                 <b>Base Experience</b><span className="badge badge-dark">{details.result.base_experience}</span>
                             </div>
-                        </center>
-                        <br/>
-                        <center className="container row">
-                            <div className="col">
-                                <b>Abilities</b>
-                                {
-                                    details.result.abilities.map((item,index)=>{
-                                        return(
-                                            <span className="badge badge-dark" key={index}>
-                                                {item.ability.name}
-                                            </span>
-                                        )
-                                    })
-                                }
-                            </div>
                             <div className="col">
                                 <b>Types</b>
                                 {
                                     details.result.types.map((item,index)=>{
                                         return(
-                                            <span className="badge badge-dark" key={index}>
+                                            <span className="badge badge-dark rounded-badge" key={index}>
                                                 {item.type.name}
                                             </span>
                                         )
                                     })
                                 }
+                            </div>
+                        </center>
+                        <br/>
+                        <center className="container row">
+                            <div className="col">
+                                <ul className="list-group">
+                                    <li className="list-group-item active" aria-expanded="true">
+                                        Abilities
+                                    </li>
+                                    {
+                                        details.result.abilities.map((item,index)=>{
+                                            return(
+                                                <li className="list-group-item" key={index}>
+                                                    {item.ability.name}
+                                                </li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                            <div className="col">
+                                <ul className="list-group">
+                                    <li className="list-group-item active" aria-expanded="true">
+                                        Stats
+                                    </li>
+                                    {
+                                        details.result.stats.map((item,index)=>{
+                                            return(
+                                                <li className="list-group-item" key={index}>
+                                                    {item.stat.name}
+                                                </li>
+                                            )
+                                        })
+                                    }
+                                </ul>
                             </div>
                         </center>
                         <br/><br/><br/>

@@ -216,7 +216,20 @@ body, html{
 
 .badge{
   margin: 5px;
-  padding: 7.5px;
+  padding: 10px;
+}
+
+.list-group{
+  margin-top: 25px;
+}
+
+.list-group-item[aria-expanded="true"]{
+  background-color: #343a40 !important;
+  border-color: #343a40;
+}
+
+.rounded-badge{
+  border-radius: 100%;
 }
 
 @media only screen and (max-width: 600px)
