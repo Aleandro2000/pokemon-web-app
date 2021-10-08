@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import { useState,useContext } from "react";
 
 import { SearchResultContext,PageContext,IndexContext } from "../context/SearchContext";
@@ -8,6 +7,7 @@ import Spinner from "./Spinner";
 
 export default function SearchBar()
 {
+    // eslint-disable-next-line
     const [searchResult,setSearchResult]=useContext(SearchResultContext);
     const [currentPage,setCurrentPage]=useContext(PageContext);
     const [pageIndex,setPageIndex]=useContext(IndexContext);

@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { DetailsContext,DescriptionContext } from "../context/DetailsContext";
@@ -7,6 +6,7 @@ import Spinner from "./Spinner";
 
 export default function ResultTable(props)
 {
+    // eslint-disable-next-line
     const [details,setDetails]=useContext(DetailsContext);
     const [description,setDescription]=useContext(DescriptionContext);
     const history=useHistory();

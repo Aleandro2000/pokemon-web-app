@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import { useContext,useEffect,useState } from "react";
 
 import { PageContext,SearchResultContext,IndexContext } from "../context/SearchContext";
@@ -8,6 +7,7 @@ import ResultTable from "./ResultTable";
 
 export default function ResultsForSearch()
 {
+    // eslint-disable-next-line
     const [searchResult,setSearchResult]=useContext(SearchResultContext);
     const [render,setRender]=useState(0);
     const [pagesCount,setPagesCount]=useState(0);
