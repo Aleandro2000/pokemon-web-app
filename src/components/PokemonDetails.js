@@ -6,6 +6,7 @@ export default function PokemonDetails()
 {
     // eslint-disable-next-line
     const [details,setDetails]=useContext(DetailsContext);
+    // eslint-disable-next-line
     const [description,setDescription]=useContext(DescriptionContext);
 
     if(details)
