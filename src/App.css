@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Pokemon Solid";
+  font-family: Pokemon;
   src: url("./fonts/pokemon-solids.ttf") format("ttf");
 }
 
@@ -9,7 +9,7 @@ body, html{
   margin: 0;
 	color: black;
   scroll-behavior: smooth;
-  font-family: 'Pokemon Solid', sans-serif;
+  font-family: Pokemon;
   letter-spacing: 2px;
 	background-image: url("./img/background-content.svg");
 }
