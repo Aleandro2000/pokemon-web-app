@@ -26,6 +26,13 @@ export default function About()
                 </p>
             </div>
             <br/>
+            <a href={process.env.REACT_APP_GITHUB} className="btn btn-dark" style={{margin: "5px"}}>
+                <i className="fa fa-github"/>
+            </a>
+            <a href={process.env.REACT_APP_LINKEDIN} className="btn btn-dark" style={{margin: "5px"}}>
+                <i className="fa fa-linkedin"/>
+            </a>
+            <br/>
         </div>
     );
 }
