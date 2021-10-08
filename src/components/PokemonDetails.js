@@ -13,243 +13,120 @@ export default function PokemonDetails()
                 <br/><br/>
                 <div className="card">
                     <div className="card-body">
-                        {
-                            details.name ? (
-                                <>
-                                    <center id="carousel" className="carousel slide" data-ride="carousel">
-                                        <div className="carousel-inner">
-                                        {
-                                            details.result.sprites.front_default ? (
-                                                <div className="carousel-item active">
-                                                    <img alt="" className="d-block" src={details.result.sprites.front_default}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.result.sprites.back_default ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.result.sprites.back_default}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.result.sprites.front_female ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.result.sprites.front_female}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.result.sprites.back_female ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.result.sprites.front_female}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.result.sprites.front_shiny ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.result.sprites.front_shiny}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.result.sprites.back_shiny ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.result.sprites.back_shiny}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.result.sprites.front_shiny_female ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.result.sprites.front_shiny_female}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.result.sprites.back_shiny_female ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.result.sprites.front_shiny_female}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        </div>
-                                        <a className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span className="sr-only">Previous</span>
-                                        </a>
-                                        <a className="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span className="sr-only">Next</span>
-                                        </a>
-                                    </center>
-                                    <h5 className="card-title" align="center">
-                                        {details.name.toUpperCase()}
-                                    </h5>
-                                    <br/>
-                                    <center className="container row">
-                                        <div className="col">
-                                            <b>Height</b><span className="badge badge-dark">{details.result.height}</span>
-                                        </div>
-                                        <div className="col">
-                                            <b>Weight</b><span className="badge badge-dark">{details.result.weight}</span>
-                                        </div>
-                                        <div className="col">
-                                            <b>Base Experience</b><span className="badge badge-dark">{details.result.base_experience}</span>
-                                        </div>
-                                    </center>
-                                    <br/>
-                                    <center className="container row">
-                                        <div className="col">
-                                            <b>Abilities</b>
-                                            {
-                                                details.result.abilities.map((item,index)=>{
-                                                    return(
-                                                        <span className="badge badge-dark" key={index}>
-                                                            {item.ability.name}
-                                                        </span>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                        <div className="col">
-                                            <b>Types</b>
-                                            {
-                                                details.result.types.map((item,index)=>{
-                                                    return(
-                                                        <span className="badge badge-dark" key={index}>
-                                                            {item.type.name}
-                                                        </span>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    </center>
-                                    <br/><br/><br/>
-                                    <p align="center">
-                                        {description}
-                                    </p>
-                                </>
-                            ) : (
-                                <>
-                                    <center id="carousel" className="carousel slide" data-ride="carousel">
-                                        <div className="carousel-inner">
-                                        {
-                                            details.sprites.front_default ? (
-                                                <div className="carousel-item active">
-                                                    <img alt="" className="d-block" src={details.sprites.front_default}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.sprites.back_default ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.sprites.back_default}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.sprites.front_female ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.sprites.front_female}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.sprites.back_female ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.sprites.front_female}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.sprites.front_shiny ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.sprites.front_shiny}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.sprites.back_shiny ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.sprites.back_shiny}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.sprites.front_shiny_female ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.sprites.front_shiny_female}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        {
-                                            details.sprites.back_shiny_female ? (
-                                                <div className="carousel-item">
-                                                    <img alt="" className="d-block" src={details.sprites.front_shiny_female}/>
-                                                </div>
-                                            ) : (<></>)
-                                        }
-                                        </div>
-                                        <a className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-                                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span className="sr-only">Previous</span>
-                                        </a>
-                                        <a className="carousel-control-next" href="#carousel" role="button" data-slide="next">
-                                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span className="sr-only">Next</span>
-                                        </a>
-                                    </center>
-                                    <h5 className="card-title" align="center">
-                                        {details.name.toUpperCase()}
-                                    </h5>
-                                    <br/>
-                                    <center className="container row">
-                                        <div className="col">
-                                            <b>Height</b><span className="badge badge-dark">{details.height}</span>
-                                        </div>
-                                        <div className="col">
-                                            <b>Weight</b><span className="badge badge-dark">{details.weight}</span>
-                                        </div>
-                                        <div className="col">
-                                            <b>Base Experience</b><span className="badge badge-dark">{details.base_experience}</span>
-                                        </div>
-                                    </center>
-                                    <br/>
-                                    <center className="container row">
-                                        <div className="col">
-                                            <b>Abilities</b>
-                                            {
-                                                details.abilities.map((item,index)=>{
-                                                    return(
-                                                        <span className="badge badge-dark" key={index}>
-                                                            {item.ability.name}
-                                                        </span>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                        <div className="col">
-                                            <b>Types</b>
-                                            {
-                                                details.types.map((item,index)=>{
-                                                    return(
-                                                        <span className="badge badge-dark" key={index}>
-                                                            {item.type.name}
-                                                        </span>
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    </center>
-                                    <br/><br/><br/>
-                                    <p align="center">
-                                        {description}
-                                    </p>
-                                </>
-                            )
-                        }
+                        <center id="carousel" className="carousel slide" data-ride="carousel">
+                            <div className="carousel-inner">
+                            {
+                                details.result.sprites.front_default ? (
+                                    <div className="carousel-item active">
+                                        <img alt="" className="d-block" src={details.result.sprites.front_default}/>
+                                    </div>
+                                ) : (<></>)
+                            }
+                            {
+                                details.result.sprites.back_default ? (
+                                    <div className="carousel-item">
+                                        <img alt="" className="d-block" src={details.result.sprites.back_default}/>
+                                    </div>
+                                ) : (<></>)
+                            }
+                            {
+                                details.result.sprites.front_female ? (
+                                    <div className="carousel-item">
+                                        <img alt="" className="d-block" src={details.result.sprites.front_female}/>
+                                    </div>
+                                ) : (<></>)
+                            }
+                            {
+                                details.result.sprites.back_female ? (
+                                    <div className="carousel-item">
+                                        <img alt="" className="d-block" src={details.result.sprites.front_female}/>
+                                    </div>
+                                ) : (<></>)
+                            }
+                            {
+                                details.result.sprites.front_shiny ? (
+                                    <div className="carousel-item">
+                                        <img alt="" className="d-block" src={details.result.sprites.front_shiny}/>
+                                    </div>
+                                ) : (<></>)
+                            }
+                            {
+                                details.result.sprites.back_shiny ? (
+                                    <div className="carousel-item">
+                                        <img alt="" className="d-block" src={details.result.sprites.back_shiny}/>
+                                    </div>
+                                ) : (<></>)
+                            }
+                            {
+                                details.result.sprites.front_shiny_female ? (
+                                    <div className="carousel-item">
+                                        <img alt="" className="d-block" src={details.result.sprites.front_shiny_female}/>
+                                    </div>
+                                ) : (<></>)
+                            }
+                            {
+                                details.result.sprites.back_shiny_female ? (
+                                    <div className="carousel-item">
+                                        <img alt="" className="d-block" src={details.result.sprites.front_shiny_female}/>
+                                    </div>
+                                ) : (<></>)
+                            }
+                            </div>
+                            <a className="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span className="sr-only">Previous</span>
+                            </a>
+                            <a className="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span className="sr-only">Next</span>
+                            </a>
+                        </center>
+                        <h5 className="card-title" align="center">
+                            {details.name.toUpperCase()}
+                        </h5>
+                        <br/>
+                        <center className="container row">
+                            <div className="col">
+                                <b>Height</b><span className="badge badge-dark">{details.result.height}</span>
+                            </div>
+                            <div className="col">
+                                <b>Weight</b><span className="badge badge-dark">{details.result.weight}</span>
+                            </div>
+                            <div className="col">
+                                <b>Base Experience</b><span className="badge badge-dark">{details.result.base_experience}</span>
+                            </div>
+                        </center>
+                        <br/>
+                        <center className="container row">
+                            <div className="col">
+                                <b>Abilities</b>
+                                {
+                                    details.result.abilities.map((item,index)=>{
+                                        return(
+                                            <span className="badge badge-dark" key={index}>
+                                                {item.ability.name}
+                                            </span>
+                                        )
+                                    })
+                                }
+                            </div>
+                            <div className="col">
+                                <b>Types</b>
+                                {
+                                    details.result.types.map((item,index)=>{
+                                        return(
+                                            <span className="badge badge-dark" key={index}>
+                                                {item.type.name}
+                                            </span>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </center>
+                        <br/><br/><br/>
+                        <p align="center">
+                            {description}
+                        </p>
                     </div>
                 </div>
                 <br/>

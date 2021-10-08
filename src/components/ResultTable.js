@@ -30,8 +30,8 @@ export default function ResultTable(props)
             fetch(pokemon.url.replace(process.env.REACT_APP_API,""))
                 .then(response=>response.json())
                 .then(data=>{
-                    setDetails(data);
-                    fetch("/pokemon-species"+data.id)
+                    setDetails({name: pokemon.name,result: data});
+                    fetch("/pokemon-species/"+data.id)
                         .then(response=>response.json())
                         .then(data=>{
                             for(let index in data.flavor_text_entries)
