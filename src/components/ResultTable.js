@@ -19,7 +19,7 @@ export default function ResultTable(props)
         if(!pokemon.url)
         {
             setDetails(pokemon);
-            await fetch("/pokemon-species/"+pokemon.result.id)
+            await fetch("/api/v2/pokemon-species/"+pokemon.result.id)
                 .then(response=>response.json())
                 .then(data=>{
                     for(let index in data.flavor_text_entries)
@@ -35,7 +35,7 @@ export default function ResultTable(props)
             let response=await fetch(pokemon.url.replace(process.env.REACT_APP_API,""));
             let result=await response.json();
             setDetails({name: pokemon.name,result: result});
-            response=await fetch("/pokemon-species/"+result.id);
+            response=await fetch("/api/v2/pokemon-species/"+result.id);
             result=await response.json();
             for(let index in result.flavor_text_entries)
                 if(result.flavor_text_entries[index].language.name==="en")

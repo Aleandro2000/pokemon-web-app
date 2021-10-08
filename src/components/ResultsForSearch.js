@@ -47,7 +47,7 @@ export default function ResultsForSearch()
     useEffect(()=>{
         if(!searchResult||!searchResult.length)
         {
-            fetch("/pokemon?offset="+currentPage*8+"&limit="+8)
+            fetch("/api/v2/pokemon?offset="+currentPage*8+"&limit="+8)
                 .then(response=>response.json())
                 .then(data=>{
                     if(data.count%8)
