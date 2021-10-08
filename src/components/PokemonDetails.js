@@ -114,7 +114,7 @@ export default function PokemonDetails()
                         <center className="container row">
                             <div className="col">
                                 <ul className="list-group">
-                                    <li className="list-group-item" aria-expanded="true">
+                                    <li className="list-group-item">
                                         <i>Abilities</i>
                                     </li>
                                     {
@@ -130,7 +130,7 @@ export default function PokemonDetails()
                             </div>
                             <div className="col">
                                 <ul className="list-group">
-                                    <li className="list-group-item" aria-expanded="true">
+                                    <li className="list-group-item">
                                         <i>Stats</i>
                                     </li>
                                     {
