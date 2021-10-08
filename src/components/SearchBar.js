@@ -9,7 +9,9 @@ export default function SearchBar()
 {
     // eslint-disable-next-line
     const [searchResult,setSearchResult]=useContext(SearchResultContext);
+    // eslint-disable-next-line
     const [currentPage,setCurrentPage]=useContext(PageContext);
+    // eslint-disable-next-line
     const [pageIndex,setPageIndex]=useContext(IndexContext);
     const [input,setInput]=useState("");
 

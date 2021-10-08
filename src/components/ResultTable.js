@@ -8,6 +8,7 @@ export default function ResultTable(props)
 {
     // eslint-disable-next-line
     const [details,setDetails]=useContext(DetailsContext);
+    // eslint-disable-next-line
     const [description,setDescription]=useContext(DescriptionContext);
     const history=useHistory();
 
