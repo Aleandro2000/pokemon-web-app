@@ -146,6 +146,11 @@ body, html{
   animation-name: tada;
 }
 
+.carousel-control-next,
+.carousel-control-prev{
+  filter: invert(100%);
+}
+
 @-webkit-keyframes tada {
   0% {
     -webkit-transform: scale3d(1, 1, 1);

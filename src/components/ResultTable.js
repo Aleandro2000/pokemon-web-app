@@ -1,14 +1,48 @@
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { DetailsContext } from "../context/DetailsContext";
+import { DetailsContext,DescriptionContext } from "../context/DetailsContext";
 
 export default function ResultTable(props)
 {
     const [details,setDetails]=useContext(DetailsContext);
+    const [description,setDescription]=useContext(DescriptionContext);
     const history=useHistory();
 
     const gotoDetails=(pokemon)=>{
-        setDetails(pokemon);
+        setDetails();
+        setDescription("");
+        if(!pokemon.url)
+        {
+            setDetails(pokemon);
+            fetch("/pokemon-species/"+pokemon.result.id)
+                .then(response=>response.json())
+                .then(data=>{
+                    for(let index in data.flavor_text_entries)
+                        if(data.flavor_text_entries[index].language.name==="en")
+                        {
+                            setDescription(data.flavor_text_entries[index].flavor_text);
+                            break;
+                        }
+                });
+        }
+        else
+        {
+            fetch(pokemon.url.replace(process.env.REACT_APP_API,""))
+                .then(response=>response.json())
+                .then(data=>{
+                    setDetails(data);
+                    fetch("/pokemon-species"+data.id)
+                        .then(response=>response.json())
+                        .then(data=>{
+                            for(let index in data.flavor_text_entries)
+                                if(data.flavor_text_entries[index].language.name==="en")
+                                {
+                                    setDescription(data.flavor_text_entries[index].flavor_text);
+                                    break;
+                                }
+                        });
+                });
+        }
         history.push("/details");
     }
     

@@ -33,7 +33,7 @@ export default function Header(props)
                             <SearchBar/>
                         </div>
                         <div className="col">
-                            <img alt="" src={mobile} className="pokemon-mobile tada"/>
+                            <img alt="" src={mobile} className="pokemon-mobile tada" onClick={pikachu}/>
                         </div>
                     </div>
                 </div>
