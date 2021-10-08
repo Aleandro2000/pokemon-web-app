@@ -4,7 +4,9 @@ import { DetailsContext,DescriptionContext } from "../context/DetailsContext";
 
 export default function PokemonDetails()
 {
+    // eslint-disable-next-line
     const [details,setDetails]=useContext(DetailsContext);
+    // eslint-disable-next-line
     const [description,setDescription]=useContext(DescriptionContext);
 
     if(details)
@@ -112,7 +114,7 @@ export default function PokemonDetails()
                         <center className="container row">
                             <div className="col">
                                 <ul className="list-group">
-                                    <li className="list-group-item active" aria-expanded="true">
+                                    <li className="list-group-item active">
                                         Abilities
                                     </li>
                                     {
@@ -128,7 +130,7 @@ export default function PokemonDetails()
                             </div>
                             <div className="col">
                                 <ul className="list-group">
-                                    <li className="list-group-item active" aria-expanded="true">
+                                    <li className="list-group-item active">
                                         Stats
                                     </li>
                                     {
