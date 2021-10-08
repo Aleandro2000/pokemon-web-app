@@ -114,8 +114,8 @@ export default function PokemonDetails()
                         <center className="container row">
                             <div className="col">
                                 <ul className="list-group">
-                                    <li className="list-group-item active" aria-expanded="true">
-                                        Abilities
+                                    <li className="list-group-item" aria-expanded="true">
+                                        <i>Abilities</i>
                                     </li>
                                     {
                                         details.result.abilities.map((item,index)=>{
@@ -130,8 +130,8 @@ export default function PokemonDetails()
                             </div>
                             <div className="col">
                                 <ul className="list-group">
-                                    <li className="list-group-item active" aria-expanded="true">
-                                        Stats
+                                    <li className="list-group-item" aria-expanded="true">
+                                        <i>Stats</i>
                                     </li>
                                     {
                                         details.result.stats.map((item,index)=>{
