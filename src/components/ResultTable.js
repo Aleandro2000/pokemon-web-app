@@ -8,13 +8,13 @@ export default function ResultTable(props)
     const [description,setDescription]=useContext(DescriptionContext);
     const history=useHistory();
 
-    const gotoDetails=(pokemon)=>{
+    const gotoDetails=async (pokemon)=>{
         setDetails();
         setDescription("");
         if(!pokemon.url)
         {
             setDetails(pokemon);
-            fetch("/pokemon-species/"+pokemon.result.id)
+            await fetch("/pokemon-species/"+pokemon.result.id)
                 .then(response=>response.json())
                 .then(data=>{
                     for(let index in data.flavor_text_entries)
@@ -27,21 +27,17 @@ export default function ResultTable(props)
         }
         else
         {
-            fetch(pokemon.url.replace(process.env.REACT_APP_API,""))
-                .then(response=>response.json())
-                .then(data=>{
-                    setDetails({name: pokemon.name,result: data});
-                    return fetch("/pokemon-species/"+data.id)
-                        .then(response=>response.json())
-                        .then(data=>{
-                            for(let index in data.flavor_text_entries)
-                                if(data.flavor_text_entries[index].language.name==="en")
-                                {
-                                    setDescription(data.flavor_text_entries[index].flavor_text);
-                                    break;
-                                }
-                        });
-                });
+            let response=await fetch(pokemon.url.replace(process.env.REACT_APP_API,""));
+            let result=await response.json();
+            setDetails({name: pokemon.name,result: result});
+            response=await fetch("/pokemon-species/"+result.id);
+            result=await response.json();
+            for(let index in result.flavor_text_entries)
+                if(result.flavor_text_entries[index].language.name==="en")
+                {
+                    setDescription(result.flavor_text_entries[index].flavor_text);
+                    break;
+                }
         }
         history.push("/details");
     }
