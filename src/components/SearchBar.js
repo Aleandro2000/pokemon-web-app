@@ -1,6 +1,6 @@
 import { useState,useContext } from "react";
 
-import { SearchResultContext } from "../context/SearchContext";
+import { SearchResultContext,PageContext,IndexContext } from "../context/SearchContext";
 import { unique } from "../utils";
 
 import Spinner from "./Spinner";
@@ -8,14 +8,18 @@ import Spinner from "./Spinner";
 export default function SearchBar()
 {
     const [searchResult,setSearchResult]=useContext(SearchResultContext);
+    const [currentPage,setCurrentPage]=useContext(PageContext);
+    const [pageIndex,setPageIndex]=useContext(IndexContext);
     const [input,setInput]=useState("");
 
     const query=()=>{
         document.getElementById("search_loading").style.display="block";
+        setSearchResult([]);
+        setCurrentPage(0);
+        setPageIndex(0);
         if(input)
         {
             let searchArr=input.toLowerCase().split(/[ ,]+/);
-            setSearchResult([]);
             searchArr.forEach(element=>{
                 fetch("/pokemon/"+element)
                     .then(response=>response.json())
@@ -25,8 +29,6 @@ export default function SearchBar()
                     });
             });
         }
-        else
-            setSearchResult();
         setTimeout(() => {
             document.getElementById("search_loading").style.display="none";
         },1000);

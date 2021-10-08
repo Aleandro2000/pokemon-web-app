@@ -1,6 +1,6 @@
 import { useContext,useEffect,useState } from "react";
 
-import { SearchResultContext } from "../context/SearchContext";
+import { PageContext,SearchResultContext,IndexContext } from "../context/SearchContext";
 
 import Spinner from "./Spinner";
 import ResultTable from "./ResultTable";
@@ -10,8 +10,8 @@ export default function ResultsForSearch()
     const [searchResult,setSearchResult]=useContext(SearchResultContext);
     const [render,setRender]=useState(0);
     const [pagesCount,setPagesCount]=useState(0);
-    const [currentPage,setCurrentPage]=useState(0);
-    const [pageIndex,setPageIndex]=useState(0);
+    const [currentPage,setCurrentPage]=useContext(PageContext);
+    const [pageIndex,setPageIndex]=useContext(IndexContext);
     const [result, setResult]=useState([]);
     const [hasResult,setHasResult]=useState(false);
 
